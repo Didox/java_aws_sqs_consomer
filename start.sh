@@ -1,1 +1,6 @@
-/usr/bin/env java -XX:+ShowCodeDetailsInExceptionMessages @/var/folders/55/t7fh_sm10xb73z65cpzkrx3m0000gn/T/cp_b2ocmej0ur9xddxz2ejlb2v4t.argfile br.com.sqs_consomer.App
+#!/bin/bash
+export CLASSPATH=target/sqs_consomer-1.0-SNAPSHOT.jar
+export className=App
+echo "## Running $className..."
+shift
+mvn exec:java -Dexec.mainClass="br.com.sqs_consomer.$className"
