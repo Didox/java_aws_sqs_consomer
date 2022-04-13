@@ -28,13 +28,13 @@ public class SQSService {
         };
 
         SqsClient sqsClient = SqsClient.builder()
-                .region(Region.SA_EAST_1)
+                .region(Region.US_EAST_1)
                 .credentialsProvider(credentialsProvider)
                 .build();
 
         // ===== Busca uma Fila =====
         GetQueueUrlRequest request = GetQueueUrlRequest.builder()
-                .queueName("fila-teste-danilo")
+                .queueName("fila-danilo")
                 .queueOwnerAWSAccountId("473247640396").build();
         GetQueueUrlResponse createResult = sqsClient.getQueueUrl(request);
         
@@ -52,6 +52,7 @@ public class SQSService {
     public static  List<Message> receiveMessages(SqsClient sqsClient, String queueUrl) {
         ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
             .queueUrl(queueUrl)
+            .waitTimeSeconds(20) // Long Polling Explicar conceito para econmizar $$
             .maxNumberOfMessages(5)
             .build();
         List<Message> messages = sqsClient.receiveMessage(receiveMessageRequest).messages();

@@ -9,7 +9,7 @@ public class App
         System.out.println("Lendo mensagens ...");
         while(true){
             SQSService.messageReader();
-            Thread.sleep(1000);
+            // Thread.sleep(1000); // Desabilitado por causa do Long Polling para econmizar $$
         }
     }
 }
