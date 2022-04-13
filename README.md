@@ -37,6 +37,9 @@ source ~/.bash_profile
 ./start.sh
 ```
 
+# custo
+https://aws.amazon.com/pt/sqs/pricing/
+
 # rodando via aws cli
 ```shell
 AWS configure
